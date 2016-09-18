@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E287BCF71D8F16D50033BA5B /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E287BCF61D8F14D60033BA5B /* impact.ttf */; };
 		E28EADD51D8805B1008BBEF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28EADD41D8805B1008BBEF8 /* AppDelegate.swift */; };
 		E28EADD71D8805B1008BBEF8 /* CreateMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28EADD61D8805B1008BBEF8 /* CreateMemeViewController.swift */; };
 		E28EADDA1D8805B1008BBEF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28EADD81D8805B1008BBEF8 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E287BCF61D8F14D60033BA5B /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
 		E28EADD11D8805B1008BBEF8 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28EADD41D8805B1008BBEF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E28EADD61D8805B1008BBEF8 /* CreateMemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMemeViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E287BCF51D8F14A00033BA5B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E287BCF61D8F14D60033BA5B /* impact.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		E28EADC81D8805B1008BBEF8 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		E28EADD31D8805B1008BBEF8 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				E287BCF51D8F14A00033BA5B /* Resources */,
 				E28EADD41D8805B1008BBEF8 /* AppDelegate.swift */,
 				E28EADD61D8805B1008BBEF8 /* CreateMemeViewController.swift */,
 				E28EADD81D8805B1008BBEF8 /* Main.storyboard */,
@@ -179,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E287BCF71D8F16D50033BA5B /* impact.ttf in Resources */,
 				E28EADDF1D8805B1008BBEF8 /* LaunchScreen.storyboard in Resources */,
 				E28EADDC1D8805B1008BBEF8 /* Assets.xcassets in Resources */,
 				E28EADDA1D8805B1008BBEF8 /* Main.storyboard in Resources */,
