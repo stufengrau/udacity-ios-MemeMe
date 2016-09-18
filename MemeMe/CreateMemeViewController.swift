@@ -12,10 +12,12 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
 
     // MARK: Properties
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -31,10 +33,20 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: Actions
     @IBAction func pickImageFromAlbum(sender: UIBarButtonItem) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        presentViewController(imagePicker, animated: true, completion: nil)
+        pickImageFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
     }
 
+    @IBAction func pickImageFromCamera(sender: UIBarButtonItem) {
+        pickImageFromSource(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    // MARK: Helper
+    func pickImageFromSource(source: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
 }
 
