@@ -13,10 +13,24 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: Properties
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    
+    var memeTopTextField: MemeTextField!
+    var memeBottomTextField: MemeTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        memeTopTextField = MemeTextField(textField: topTextField)
+        memeBottomTextField = MemeTextField(textField: bottomTextField)
+        self.topTextField.delegate = self.memeTopTextField
+        self.bottomTextField.delegate = self.memeBottomTextField
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // Enable camera button only if camera is available.
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
