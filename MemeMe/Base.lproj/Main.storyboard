@@ -68,7 +68,9 @@
                     <connections>
                         <outlet property="bottomTextField" destination="yEH-pM-JOS" id="pNd-S3-3oc"/>
                         <outlet property="cameraButton" destination="3Sm-lK-89F" id="8lI-Df-rCs"/>
+                        <outlet property="navbar" destination="Ria-eM-YEg" id="6p2-xl-AjO"/>
                         <outlet property="photoImageView" destination="xVp-Uk-IRc" id="H0M-DC-yis"/>
+                        <outlet property="toolbar" destination="IrG-cf-J1d" id="mpa-rL-hMc"/>
                         <outlet property="topTextField" destination="OYM-WI-SL6" id="Jce-he-WZz"/>
                     </connections>
                 </viewController>

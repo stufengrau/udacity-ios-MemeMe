@@ -15,9 +15,18 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var navbar: UINavigationItem!
     
     var memeTopTextField: MemeTextField!
     var memeBottomTextField: MemeTextField!
+    
+    struct Meme {
+        let topText: String
+        let bottomText: String
+        let photo: UIImage
+        let memedPhoto: UIImage
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +91,23 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         pickImageFromSource(UIImagePickerControllerSourceType.Camera)
     }
     
+    // MARK: TODO
+    func save() {
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage {
+        // Render view to an image.
+        toolbar.hidden = true
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        toolbar.hidden = false
+        
+        return memedImage
+    }
+    
     // MARK: Helper
     func pickImageFromSource(source: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
@@ -94,7 +120,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let userInfo = notification.userInfo!
         let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
-    }
-    
+    }    
+
 }
 
