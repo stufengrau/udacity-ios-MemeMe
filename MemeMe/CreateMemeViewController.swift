@@ -30,8 +30,15 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.subscribeToKeyboardNotifications()
         // Enable camera button only if camera is available.
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeFromKeyboardNotifications()
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -43,6 +50,31 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         photoImageView.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: NSNotification
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateMemeViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateMemeViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        // If the bottom text field is edited and the top field is accessible and the user switches from
+        // bottom to top and back to bottom text field, the view gets shifted again.
+        // To prevent this, reset the origin before shifting the view.
+        self.view.frame.origin.y = 0
+        if bottomTextField.editing {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     // MARK: Actions
@@ -60,6 +92,12 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         imagePicker.delegate = self
         imagePicker.sourceType = source
         presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo!
+        let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
     }
     
 }
