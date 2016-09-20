@@ -64,10 +64,6 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        // If the bottom text field is edited and the top field is accessible and the user switches from
-        // bottom to top and back to bottom text field, the view gets shifted again.
-        // To prevent this, reset the origin before shifting the view.
-        self.view.frame.origin.y = 0
         if bottomTextField.editing {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
