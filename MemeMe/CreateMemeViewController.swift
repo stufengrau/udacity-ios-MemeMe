@@ -16,7 +16,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var navbar: UINavigationItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var memeTopTextField: MemeTextField!
     var memeBottomTextField: MemeTextField!
@@ -43,6 +43,9 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         self.subscribeToKeyboardNotifications()
         // Enable camera button only if camera is available.
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        if photoImageView.image == nil {
+            shareButton.enabled = false
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -58,6 +61,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         photoImageView.image = selectedImage
+        shareButton.enabled = true
         dismissViewControllerAnimated(true, completion: nil)
     }
     
