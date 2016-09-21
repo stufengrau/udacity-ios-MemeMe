@@ -2,12 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;Take a picture with your camera to create a Meme&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;Choose a picture from your album to create a Meme&quot;</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>impact.ttf</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;To create a Meme from your album&quot;</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
