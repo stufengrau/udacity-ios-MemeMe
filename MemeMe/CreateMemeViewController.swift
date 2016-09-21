@@ -95,6 +95,18 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         pickImageFromSource(UIImagePickerControllerSourceType.Camera)
     }
     
+    @IBAction func shareMeme(sender: UIBarButtonItem) {
+        let image = generateMemedImage()
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.presentViewController(activityController, animated: true, completion: nil)
+        activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
+            if completed {
+                self.save()
+            }
+        }
+    }
+
+    
     // MARK: TODO
     func save() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: generateMemedImage())
