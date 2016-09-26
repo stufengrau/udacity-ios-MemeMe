@@ -21,13 +21,6 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     var memeTopTextField: MemeTextField!
     var memeBottomTextField: MemeTextField!
     
-    struct Meme {
-        let topText: String
-        let bottomText: String
-        let photo: UIImage
-        let memedPhoto: UIImage
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         topTextField.text = "TOP"
