@@ -15,6 +15,7 @@
 		E28EADDC1D8805B1008BBEF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E28EADDB1D8805B1008BBEF8 /* Assets.xcassets */; };
 		E28EADDF1D8805B1008BBEF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28EADDD1D8805B1008BBEF8 /* LaunchScreen.storyboard */; };
 		E28EADEA1D8805B1008BBEF8 /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28EADE91D8805B1008BBEF8 /* MemeMeTests.swift */; };
+		E2EE645E1D99A3D300CF7D37 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE645D1D99A3D300CF7D37 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E28EADE51D8805B1008BBEF8 /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28EADE91D8805B1008BBEF8 /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
 		E28EADEB1D8805B1008BBEF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2EE645D1D99A3D300CF7D37 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				E28EADD41D8805B1008BBEF8 /* AppDelegate.swift */,
 				E28EADD61D8805B1008BBEF8 /* CreateMemeViewController.swift */,
 				E287BCFA1D90304C0033BA5B /* MemeTextField.swift */,
+				E2EE645D1D99A3D300CF7D37 /* Meme.swift */,
 				E28EADD81D8805B1008BBEF8 /* Main.storyboard */,
 				E28EADDB1D8805B1008BBEF8 /* Assets.xcassets */,
 				E28EADDD1D8805B1008BBEF8 /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28EADD71D8805B1008BBEF8 /* CreateMemeViewController.swift in Sources */,
+				E2EE645E1D99A3D300CF7D37 /* Meme.swift in Sources */,
 				E28EADD51D8805B1008BBEF8 /* AppDelegate.swift in Sources */,
 				E287BCFB1D90304C0033BA5B /* MemeTextField.swift in Sources */,
 			);

@@ -47,19 +47,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xVp-Uk-IRc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="4V8-G1-BCQ"/>
-                            <constraint firstItem="xVp-Uk-IRc" firstAttribute="bottom" secondItem="IrG-cf-J1d" secondAttribute="top" constant="-10" id="5l6-AU-NQp"/>
+                            <constraint firstItem="xVp-Uk-IRc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="4V8-G1-BCQ"/>
+                            <constraint firstItem="xVp-Uk-IRc" firstAttribute="bottom" secondItem="IrG-cf-J1d" secondAttribute="top" constant="-8" id="5l6-AU-NQp"/>
                             <constraint firstItem="OYM-WI-SL6" firstAttribute="width" secondItem="xVp-Uk-IRc" secondAttribute="width" id="7ph-ry-WgX"/>
                             <constraint firstItem="yEH-pM-JOS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9ry-cK-FhR"/>
                             <constraint firstItem="xVp-Uk-IRc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AUK-Pn-TkD"/>
                             <constraint firstItem="IrG-cf-J1d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EJF-Oy-6wy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IrG-cf-J1d" secondAttribute="bottom" id="GBH-uO-oIO"/>
                             <constraint firstItem="yEH-pM-JOS" firstAttribute="width" secondItem="xVp-Uk-IRc" secondAttribute="width" id="Oqv-ad-LtQ"/>
-                            <constraint firstItem="OYM-WI-SL6" firstAttribute="top" secondItem="xVp-Uk-IRc" secondAttribute="top" constant="10" id="Pqa-1Y-9z1"/>
+                            <constraint firstItem="OYM-WI-SL6" firstAttribute="top" secondItem="xVp-Uk-IRc" secondAttribute="top" id="Pqa-1Y-9z1"/>
                             <constraint firstItem="OYM-WI-SL6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ROF-5e-Q9T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xVp-Uk-IRc" secondAttribute="trailing" id="eJd-d8-MtP"/>
                             <constraint firstAttribute="trailing" secondItem="IrG-cf-J1d" secondAttribute="trailing" id="pdq-nl-IkZ"/>
-                            <constraint firstItem="yEH-pM-JOS" firstAttribute="bottom" secondItem="xVp-Uk-IRc" secondAttribute="bottom" constant="-10" id="r1k-zM-iyk"/>
+                            <constraint firstItem="yEH-pM-JOS" firstAttribute="bottom" secondItem="xVp-Uk-IRc" secondAttribute="bottom" id="r1k-zM-iyk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Meme" id="Ria-eM-YEg">
@@ -87,7 +87,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xry-Kw-9KV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VUr-ko-ngv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VUr-ko-ngv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
