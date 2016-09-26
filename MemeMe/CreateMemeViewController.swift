@@ -74,7 +74,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     func keyboardWillShow(notification: NSNotification) {
         // Bottom text field should be visible when editing -> shift view up
         if bottomTextField.editing {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     
