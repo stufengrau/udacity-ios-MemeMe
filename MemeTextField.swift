@@ -24,12 +24,14 @@ class MemeTextField: NSObject, UITextFieldDelegate {
     }
     
     // MARK: UITextFieldDelegate
+    // Clear only default text when user begins editing.
     func textFieldDidBeginEditing(textField: UITextField) {
         if (textField.text == "BOTTOM" || textField.text == "TOP") {
             textField.text = ""
         }
     }
     
+    // Dismiss keyboard, if user hits return.
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

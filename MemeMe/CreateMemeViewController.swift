@@ -43,6 +43,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         self.subscribeToKeyboardNotifications()
         // Enable camera button only if camera is available.
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        // Disable share button if no image is selected.
         if photoImageView.image == nil {
             shareButton.enabled = false
         }
@@ -61,11 +62,12 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         photoImageView.image = selectedImage
+        // Enable share button after an image was selected.
         shareButton.enabled = true
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // MARK: NSNotification
+    // MARK: NSNotification - Keyboard Notifications
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateMemeViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateMemeViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
@@ -77,6 +79,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func keyboardWillShow(notification: NSNotification) {
+        // Bottom text field should be visible when editing -> shift view up
         if bottomTextField.editing {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
@@ -96,24 +99,27 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func shareMeme(sender: UIBarButtonItem) {
-        let image = generateMemedImage()
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        // Generate meme for sharing.
+        let memedImage = generateMemedImage()
+        let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.presentViewController(activityController, animated: true, completion: nil)
+        // Save the meme after sharing.
         activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
             if completed {
-                self.save()
+                self.save(memedImage)
             }
         }
     }
 
     
-    // MARK: TODO
-    func save() {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: generateMemedImage())
+    // MARK: Generate and save the Meme
+    // So far the save function doesn't do anything useful ... maybe in Version 2 of MemeMe
+    func save(image: UIImage) {
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: image)
     }
     
     func generateMemedImage() -> UIImage {
-        // Render view to an image.
+        // Render view without the toolbar to an image.
         toolbar.hidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
