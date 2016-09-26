@@ -27,13 +27,13 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.text = "BOTTOM"
         memeTopTextField = MemeTextField(textField: topTextField)
         memeBottomTextField = MemeTextField(textField: bottomTextField)
-        self.topTextField.delegate = self.memeTopTextField
-        self.bottomTextField.delegate = self.memeBottomTextField
+        topTextField.delegate = memeTopTextField
+        bottomTextField.delegate = memeBottomTextField
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         // Enable camera button only if camera is available.
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         // Disable share button if no image is selected.
@@ -44,7 +44,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -79,7 +79,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     // MARK: Actions
@@ -95,7 +95,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         // Generate meme for sharing.
         let memedImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        self.presentViewController(activityController, animated: true, completion: nil)
+        presentViewController(activityController, animated: true, completion: nil)
         // Save the meme after sharing.
         activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
             if completed {
@@ -114,8 +114,8 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     func generateMemedImage() -> UIImage {
         // Render view without the toolbar to an image.
         toolbar.hidden = true
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         toolbar.hidden = false
