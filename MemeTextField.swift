@@ -20,6 +20,7 @@ class MemeTextField: NSObject, UITextFieldDelegate {
         self.textField = textField
         self.textField.defaultTextAttributes = memeTextAttributes
         self.textField.textAlignment = NSTextAlignment.Center
+        self.textField.adjustsFontSizeToFitWidth = true
     }
     
     // MARK: UITextFieldDelegate
