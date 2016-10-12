@@ -100,8 +100,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
             if completed {
                 self.save(memedImage)
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
+        
     }
 
     
