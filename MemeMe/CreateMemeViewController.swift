@@ -110,7 +110,13 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: Generate and save the Meme
     // So far the save function doesn't do anything useful ... maybe in Version 2 of MemeMe
     func save(image: UIImage) {
+        // Create meme.
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: image)
+        
+        // Add it to the memes array in the Application Delegate.
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
