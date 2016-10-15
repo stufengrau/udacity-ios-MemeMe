@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a9e-5v-aQH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yrn-rC-DKH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -138,10 +138,28 @@
             </objects>
             <point key="canvasLocation" x="-1231.2" y="-38.23088455772114"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8sG-KZ-ZBm">
+            <objects>
+                <tabBarController id="Yrn-rC-DKH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="zQQ-ZN-oEl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="a9e-5v-aQH" kind="relationship" relationship="viewControllers" id="PMY-Gm-05q"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CFf-JF-nxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3049" y="-296"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="AEf-Ty-leC">
             <objects>
                 <navigationController id="a9e-5v-aQH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tableView" id="zlW-XN-1wG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f4R-pI-HJt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -173,4 +191,7 @@
             <point key="canvasLocation" x="-326" y="-38"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tableView" width="30" height="30"/>
+    </resources>
 </document>
