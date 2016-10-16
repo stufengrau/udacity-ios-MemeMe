@@ -106,6 +106,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
 
+    @IBAction func cancelMeme(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
     // MARK: Generate and save the Meme
     // So far the save function doesn't do anything useful ... maybe in Version 2 of MemeMe

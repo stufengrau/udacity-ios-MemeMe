@@ -72,6 +72,11 @@
                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="P39-CO-moq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="cZA-H8-KpD">
+                            <connections>
+                                <action selector="cancelMeme:" destination="BYZ-38-t0r" id="WLs-7P-JoG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="yEH-pM-JOS" id="pNd-S3-3oc"/>
@@ -91,7 +96,7 @@
             <objects>
                 <navigationController id="TCv-Fy-fji" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="collectionView" id="oLg-Jr-qR7"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q4B-if-QGi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="q4B-if-QGi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -107,7 +112,7 @@
         <scene sceneID="tsY-So-49c">
             <objects>
                 <collectionViewController id="jzP-2t-fp0" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AE9-Q0-DwZ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="AE9-Q0-DwZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -228,7 +233,7 @@
             <objects>
                 <navigationController id="a9e-5v-aQH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tableView" id="zlW-XN-1wG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f4R-pI-HJt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f4R-pI-HJt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -245,7 +250,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xry-Kw-9KV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VUr-ko-ngv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VUr-ko-ngv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
