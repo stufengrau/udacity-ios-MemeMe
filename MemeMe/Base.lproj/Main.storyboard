@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="-38"/>
+            <point key="canvasLocation" x="626" y="-406"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gO7-ex-7mZ">
@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="-2095" y="-824"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Shared Memes-->
         <scene sceneID="tsY-So-49c">
             <objects>
                 <collectionViewController id="jzP-2t-fp0" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,13 @@
                             <outlet property="delegate" destination="jzP-2t-fp0" id="EFa-RW-GcA"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Mr2-ZT-oGs"/>
+                    <navigationItem key="navigationItem" title="Shared Memes" id="Mr2-ZT-oGs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1uS-Dg-ZJe">
+                            <connections>
+                                <segue destination="Xry-Kw-9KV" kind="show" id="u2a-BN-sIm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AA6-dh-W5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,11 +256,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CH9-C4-sNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="-38"/>
+            <point key="canvasLocation" x="-175" y="-406"/>
         </scene>
     </scenes>
     <resources>
         <image name="collectionView" width="30" height="30"/>
         <image name="tableView" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="u2a-BN-sIm"/>
+    </inferredMetricsTieBreakers>
 </document>
