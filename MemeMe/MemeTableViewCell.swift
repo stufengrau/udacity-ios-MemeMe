@@ -12,7 +12,7 @@ class MemeTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var generatedMeme: UIImageView!
-    @IBOutlet weak var generatedMemeText: UITextField!
+    @IBOutlet weak var generatedMemeText: UILabel!
     
     
     override func awakeFromNib() {

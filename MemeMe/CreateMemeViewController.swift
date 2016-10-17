@@ -17,6 +17,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var renderView: UIView!
     
     var memeTopTextField: MemeTextField!
     var memeBottomTextField: MemeTextField!
@@ -112,7 +113,6 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
 
     
     // MARK: Generate and save the Meme
-    // So far the save function doesn't do anything useful ... maybe in Version 2 of MemeMe
     func save(image: UIImage) {
         // Create meme.
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: image)
@@ -124,13 +124,12 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func generateMemedImage() -> UIImage {
-        // Render view without the toolbar to an image.
-        toolbar.hidden = true
+        // Render view to an image.
+
         UIGraphicsBeginImageContext(view.frame.size)
-        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+        renderView.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        toolbar.hidden = false
         
         return memedImage
     }
