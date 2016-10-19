@@ -17,6 +17,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var renderView: UIView!
     
     var memeTopTextField: MemeTextField!
     var memeBottomTextField: MemeTextField!
@@ -100,25 +101,35 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
             if completed {
                 self.save(memedImage)
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
+        
+    }
+
+    @IBAction func cancelMeme(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     
     // MARK: Generate and save the Meme
-    // So far the save function doesn't do anything useful ... maybe in Version 2 of MemeMe
     func save(image: UIImage) {
+        // Create meme.
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, photo: photoImageView.image!, memedPhoto: image)
+        
+        // Add it to the memes array in the Application Delegate.
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
-        // Render view without the toolbar to an image.
-        toolbar.hidden = true
+        // Render view to an image.
+
         UIGraphicsBeginImageContext(view.frame.size)
-        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+        renderView.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        toolbar.hidden = false
         
         return memedImage
     }
