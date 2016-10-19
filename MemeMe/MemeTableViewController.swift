@@ -10,24 +10,20 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(animated: Bool) {
+        // To show newly created memes, reload data.
         tableView.reloadData()
     }
-
 
     // MARK: - Table view data source
 
@@ -40,12 +36,11 @@ class MemeTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
+
         let cellIdentifier = "MemeTableViewCell"
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MemeTableViewCell
         
-        // Fetches the appropriate meal for the data source layout.
         let meme = memes[indexPath.row]
         
         cell.generatedMeme.image = meme.memedPhoto
@@ -55,6 +50,7 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // If a meme got selected show a detailed (in this case bigger) view of the meme.
         let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailVC.meme = memes[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)

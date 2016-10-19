@@ -10,6 +10,8 @@ import UIKit
 
 class MemeCollectionViewCell: UICollectionViewCell {
     
+    // MARK: Properties
+    
     @IBOutlet weak var generatedMemeImage: UIImageView!
     
 }

@@ -170,18 +170,22 @@
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="9Uk-Uu-bDl" customClass="MemeCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-4o-fXx">
-                                            <frame key="frameInset" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-4o-fXx">
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="kyf-4o-fXx" firstAttribute="width" secondItem="9Uk-Uu-bDl" secondAttribute="width" id="4Vp-R3-YT5"/>
+                                    <constraint firstItem="kyf-4o-fXx" firstAttribute="height" secondItem="9Uk-Uu-bDl" secondAttribute="height" id="c90-C7-Sv9"/>
+                                    <constraint firstItem="kyf-4o-fXx" firstAttribute="centerX" secondItem="9Uk-Uu-bDl" secondAttribute="centerX" id="myG-tp-Jwv"/>
+                                    <constraint firstItem="kyf-4o-fXx" firstAttribute="centerY" secondItem="9Uk-Uu-bDl" secondAttribute="centerY" id="zag-2l-TcK"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="generatedMemeImage" destination="kyf-4o-fXx" id="o5l-CA-P8R"/>
                                 </connections>
@@ -199,6 +203,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="kCX-KV-XPq" id="6Ou-Lq-azj"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AA6-dh-W5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,6 +335,6 @@
         <image name="tableView" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4GL-Rc-1Ca"/>
+        <segue reference="u2a-BN-sIm"/>
     </inferredMetricsTieBreakers>
 </document>
