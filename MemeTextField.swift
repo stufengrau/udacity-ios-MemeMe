@@ -16,8 +16,9 @@ class MemeTextField: NSObject, UITextFieldDelegate {
     let memeTextAttributes = [NSStrokeColorAttributeName: UIColor.blackColor(), NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Impact", size: 40)!, NSStrokeWidthAttributeName: -3.0]
     
     // MARK: Initialization
-    init(textField: UITextField) {
+    init(textField: UITextField, text: String) {
         self.textField = textField
+        self.textField.text = text
         self.textField.defaultTextAttributes = memeTextAttributes
         self.textField.textAlignment = NSTextAlignment.Center
         self.textField.adjustsFontSizeToFitWidth = true

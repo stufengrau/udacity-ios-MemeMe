@@ -24,12 +24,9 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        memeTopTextField = MemeTextField(textField: topTextField)
-        memeBottomTextField = MemeTextField(textField: bottomTextField)
-        topTextField.delegate = memeTopTextField
-        bottomTextField.delegate = memeBottomTextField
+        // Create MemeTextField delegate.
+        memeTopTextField = createMemeTextField(with: topTextField, defaultText: "TOP")
+        memeBottomTextField = createMemeTextField(with: bottomTextField, defaultText: "BOTTOM")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -135,6 +132,12 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // MARK: Helper
+    func createMemeTextField(with textField: UITextField, defaultText text: String) -> MemeTextField {
+        let memeTextField = MemeTextField(textField: textField, text: text)
+        textField.delegate = memeTextField
+        return memeTextField
+    }
+    
     func pickImageFromSource(source: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
