@@ -59,7 +59,7 @@ class MemeCollectionViewController: UICollectionViewController {
         // If a meme got selected show a detailed (in this case bigger) view of the meme.
         let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailVC.meme = memes[indexPath.row]
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     // MARK: Helper

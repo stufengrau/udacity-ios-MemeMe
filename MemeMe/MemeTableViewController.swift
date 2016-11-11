@@ -15,10 +15,6 @@ class MemeTableViewController: UITableViewController {
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     override func viewWillAppear(animated: Bool) {
         // To show newly created memes, reload data.
@@ -54,6 +50,17 @@ class MemeTableViewController: UITableViewController {
         let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailVC.meme = memes[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Remove shared meme form to the memes array in the Application Delegate.
+            let object = UIApplication.sharedApplication().delegate
+            let appDelegate = object as! AppDelegate
+            appDelegate.memes.removeAtIndex(indexPath.row)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
 
 }
