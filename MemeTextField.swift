@@ -13,27 +13,27 @@ class MemeTextField: NSObject, UITextFieldDelegate {
     
     // MARK: Properties
     let textField: UITextField
-    let memeTextAttributes = [NSStrokeColorAttributeName: UIColor.blackColor(), NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Impact", size: 40)!, NSStrokeWidthAttributeName: -3.0]
+    let memeTextAttributes = [NSStrokeColorAttributeName: UIColor.black, NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Impact", size: 40)!, NSStrokeWidthAttributeName: -3.0] as [String : Any]
     
     // MARK: Initialization
     init(textField: UITextField, text: String) {
         self.textField = textField
         self.textField.text = text
         self.textField.defaultTextAttributes = memeTextAttributes
-        self.textField.textAlignment = NSTextAlignment.Center
+        self.textField.textAlignment = NSTextAlignment.center
         self.textField.adjustsFontSizeToFitWidth = true
     }
     
     // MARK: UITextFieldDelegate
     // Clear only default text when user begins editing.
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.text == "BOTTOM" || textField.text == "TOP") {
             textField.text = ""
         }
     }
     
     // Dismiss keyboard, if user hits return.
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

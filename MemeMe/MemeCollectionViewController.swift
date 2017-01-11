@@ -13,7 +13,7 @@ class MemeCollectionViewController: UICollectionViewController {
     // MARK: Properties
     
     var memes: [Meme] {
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -26,7 +26,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     // Set correct flowLayout when orientation changed.
     // http://stackoverflow.com/questions/25666269/ios8-swift-how-to-detect-orientation-change
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         // If the collection view was not visited but the orientation of the device changed, e.g. when 
         // creating a meme, flowLayout ist nil and app crashed -> test if flowLayout is nil
         if flowLayout != nil {
@@ -34,20 +34,20 @@ class MemeCollectionViewController: UICollectionViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // To show newly created memes, reload data.
         collectionView?.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
         let meme = memes[indexPath.row]
         
         cell.generatedMemeImage.image = meme.memedPhoto
@@ -55,16 +55,16 @@ class MemeCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // If a meme got selected show a detailed (in this case bigger) view of the meme.
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailVC.meme = memes[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     // MARK: Helper
     
-    func setGridLayout(size: CGSize) {
+    func setGridLayout(_ size: CGSize) {
         
         let spacing: CGFloat = 3.0
         let numberPortrait: CGFloat = 3.0
@@ -82,7 +82,7 @@ class MemeCollectionViewController: UICollectionViewController {
         
         flowLayout.minimumInteritemSpacing = spacing
         flowLayout.minimumLineSpacing = spacing
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
 
 }
